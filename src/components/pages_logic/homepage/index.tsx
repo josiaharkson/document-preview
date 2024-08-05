@@ -1,10 +1,17 @@
 import React from "react";
 import Preview from "@/components/blocks/Preview";
+import { useSearchParams } from "next/navigation";
 import "./homepage.css";
+
 function Homepage() {
-  const extension = "mp4";
+  const searchParams = useSearchParams();
+
   const src =
-    "https://shekel-bucket.s3.amazonaws.com/uploads/1721898499-whats-app-video-2024-03-05-at-121906-pm.mp4";
+    typeof searchParams.get("src") === "string"
+      ? searchParams.get("src") || ""
+      : "";
+  const extension = `${(typeof src === "string" ? src : "").split(".").pop()}`;
+
   return (
     <div>
       <Preview extension={extension} src={src} />
