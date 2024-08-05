@@ -4,8 +4,6 @@ import Preview from "@/components/blocks/Preview";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
-import "./homepage.css";
-
 function Wrapper() {
   return (
     <Suspense>
@@ -22,10 +20,14 @@ function Homepage() {
       ? searchParams.get("src") || ""
       : "";
   const extension = `${(typeof src === "string" ? src : "").split(".").pop()}`;
+  const name =
+    typeof searchParams.get("name") === "string"
+      ? searchParams.get("name") || ""
+      : "";
 
   return (
     <div>
-      <Preview extension={extension} src={src} />
+      <Preview extension={extension} src={src} name={name} />
     </div>
   );
 }
