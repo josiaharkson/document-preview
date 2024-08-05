@@ -1,7 +1,18 @@
 import React from "react";
 import Preview from "@/components/blocks/Preview";
+
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+
 import "./homepage.css";
+
+function Wrapper() {
+  return (
+    <Suspense>
+      <Homepage />
+    </Suspense>
+  );
+}
 
 function Homepage() {
   const searchParams = useSearchParams();
@@ -19,4 +30,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Wrapper;
