@@ -1,0 +1,40 @@
+.ant-image-preview-root .ant-image-preview-img-wrapper::before {
+  height: 10%;
+}
+
+.ant-image-preview-root .ant-image-preview-img {
+  max-height: 75%;
+  margin: 0 auto;
+}
+
+.ant-image-preview-root .ant-image-preview-switch-left,
+.ant-image-preview-root .ant-image-preview-switch-right {
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.ant-image-preview-root .ant-image-preview-switch-left-disabled,
+.ant-image-preview-root .ant-image-preview-switch-right-disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.ant-modal.shekel-preview-modal .ant-modal-body {
+  padding: 0;
+}
+
+.ant-image-preview-root .ant-image-preview-img-wrapper::before {
+  height: 10%;
+}
+.ant-image-preview-root .ant-image-preview-img {
+  max-height: 75%;
+  margin: 0 auto;
+}
+.ant-image-preview-root .ant-image-preview-switch-left,
+.ant-image-preview-root .ant-image-preview-switch-right {
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+}
+.ant-image-preview-root .ant-image-preview-switch-left-disabled,
+.ant-image-preview-root .ant-image-preview-switch-right-disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
