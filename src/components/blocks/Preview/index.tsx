@@ -1,5 +1,5 @@
 import { CloseOutlined } from "@ant-design/icons";
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ImagePeview from "../ImagePreview";
 import constants from "@/utils/constants";
 import { Viewer, Worker } from "@react-pdf-viewer/core";
@@ -96,6 +96,9 @@ const Preview: React.FC<IProps> = ({ src, extension, name }) => {
     );
   }, [src, visible, extension]);
 
+  useEffect(() => {
+    if (src && extension) setVisible(true);
+  }, [src, extension]);
   return (
     <div className="bg-[whitesmoke] w-screen h-screen flex items-center justify-center">
       {renderPreviewer()}
