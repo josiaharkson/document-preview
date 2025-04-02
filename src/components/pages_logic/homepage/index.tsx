@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Preview from "@/components/blocks/Preview";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense } from "react";
 
 function Wrapper() {
@@ -15,21 +15,28 @@ function Wrapper() {
 function Homepage() {
   const searchParams = useSearchParams();
 
-  const src =
-    typeof searchParams.get("src") === "string"
-      ? searchParams.get("src") || ""
-      : "";
-  const extension = `${(typeof src === "string" ? src : "").split(".").pop()}`;
-  const name =
-    typeof searchParams.get("name") === "string"
-      ? searchParams.get("name") || ""
-      : "";
+  const [data, setData] = useState({
+    src: "",
+    extension: "",
+    name: "",
+  });
 
-  return (
-    <div>
-      <Preview extension={extension} src={src} name={name} />
-    </div>
-  );
+  useEffect(() => {
+    const src = window.location.href.split("?src=")[1];
+    setData({
+      src,
+      extension: `${(typeof src === "string" ? src : "")
+        .split(".")
+        .pop()}`.split("?")[0],
+      name:
+        typeof searchParams.get("name") === "string"
+          ? searchParams.get("name") || ""
+          : "",
+    });
+  }, []);
+  console.log("data", data);
+  const { extension, name, src } = data || {};
+  return <Preview extension={extension} src={src} name={name} />;
 }
 
 export default Wrapper;

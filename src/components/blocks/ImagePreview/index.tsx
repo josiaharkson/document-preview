@@ -19,6 +19,8 @@ const ImagePeview: React.FC<IProps> = ({
   isPreviewGroup,
   current,
 }) => {
+  console.log("xxxxxxx", src);
+
   return isPreviewGroup ? (
     <div style={imageStyle}>
       <Image.PreviewGroup

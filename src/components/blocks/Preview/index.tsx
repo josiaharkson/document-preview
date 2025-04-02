@@ -45,6 +45,7 @@ const PreviewModal: React.FC<DialogProps> = (props) => {
 
 const Preview: React.FC<IProps> = ({ src, extension, name }) => {
   const [visible, setVisible] = useState(false);
+  console.log("src", src);
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
