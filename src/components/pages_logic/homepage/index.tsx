@@ -23,16 +23,17 @@ function Homepage() {
 
   useEffect(() => {
     const src = window.location.href.split("?src=")[1];
-    setData({
-      src,
-      extension: `${(typeof src === "string" ? src : "")
-        .split(".")
-        .pop()}`.split("?")[0],
-      name:
-        typeof searchParams.get("name") === "string"
-          ? searchParams.get("name") || ""
-          : "",
-    });
+    if (src)
+      setData({
+        src,
+        extension: `${(typeof src === "string" ? src : "")
+          .split(".")
+          .pop()}`.split("?")[0],
+        name:
+          typeof searchParams.get("name") === "string"
+            ? searchParams.get("name") || ""
+            : "",
+      });
   }, []);
   console.log("data", data);
   const { extension, name, src } = data || {};
